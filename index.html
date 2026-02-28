@@ -10,7 +10,6 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* This adds a nice light grey/blue background to the whole page */
             background-color: #f0f2f5; 
             color: #333;
             line-height: 1.6;
@@ -66,13 +65,13 @@
         }
 
         .project-card {
-            background-color: #fff; /* Card background */
+            background-color: #fff;
             padding: 25px;
             width: 280px;
             border-radius: 12px;
             box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
-            border-top: 5px solid #0366d6; /* Accent color top border */
+            border-top: 5px solid #0366d6;
         }
 
         .project-card:hover {
@@ -96,10 +95,21 @@
             transition: background 0.3s;
             border: none;
             cursor: pointer;
+            margin: 10px;
         }
 
         .btn:hover {
             background-color: #024c9a;
+            opacity: 0.9;
+        }
+
+        /* Specific Green for Phone Button */
+        .btn-phone {
+            background-color: #28a745;
+        }
+        
+        .btn-phone:hover {
+            background-color: #218838;
         }
 
         /* Footer */
@@ -156,9 +166,15 @@
 
 <section id="contact">
     <h2>Contact Me</h2>
-    <p style="text-align: center; margin-bottom: 25px;">If you want to connect or collaborate on a project, feel free to reach out!</p>
+    <p style="text-align: center; margin-bottom: 25px;">I'm available for new opportunities. Reach out via email or phone!</p>
     <div style="text-align: center;">
-        <a href="mailto:youremail@example.com" class="btn">Send an Email</a>
+        <a href="mailto:mustakhinemustafaattar@gmail.com" class="btn">
+            Email Me
+        </a>
+        
+        <a href="tel:8971521782" class="btn btn-phone">
+            Call 8971521782
+        </a>
     </div>
 </section>
 
