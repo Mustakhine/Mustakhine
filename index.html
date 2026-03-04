@@ -3,307 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustakhine | Portfolio</title>
+<title>Mustakhine | INSANE Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Particles.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-* {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    color:#ffffff;
-    line-height:1.6;
-    background:#000;
-    overflow-x:hidden;
+body{
+font-family:'Orbitron',sans-serif;
+background:#0f0f1a;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* Matrix Canvas Background */
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+/* PARTICLES BACKGROUND */
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
-/* Navbar */
-nav {
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(0,0,0,0.8);
-    padding:15px;
-    text-align:center;
-    z-index:1000;
-    backdrop-filter: blur(8px);
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px;
+text-align:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-nav a {
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:bold;
+nav a{
+color:#fff;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
 
-nav a:hover {
-    color:#00ff99;
+nav a:hover{
+color:#00f7ff;
 }
 
-/* Header */
-header {
-    padding:140px 20px 80px;
-    text-align:center;
+/* HERO */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-header h1 {
-    font-size:48px;
+header h1{
+font-size:60px;
+background:linear-gradient(90deg,#00f7ff,#ff00ff,#00ff99);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 5s infinite linear;
 }
 
-header p {
-    margin:15px 0;
+@keyframes gradientMove{
+0%{background-position:0%;}
+100%{background-position:300%;}
 }
 
-/* Sections */
-section {
-    padding:60px 20px;
-    max-width:1000px;
-    margin:auto;
+.typing{
+color:#00f7ff;
+margin-top:20px;
+font-size:22px;
 }
 
-section h2 {
-    text-align:center;
-    font-size:32px;
-    margin-bottom:30px;
+/* GLASS SECTIONS */
+section{
+padding:100px 20px;
+max-width:1100px;
+margin:40px auto;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 40px rgba(0,255,255,0.1);
+transition:0.6s;
+opacity:0;
+transform:translateY(40px);
 }
 
-/* Glass Effect Cards */
-.projects {
-    display:flex;
-    flex-wrap:wrap;
-    gap:25px;
-    justify-content:center;
+section.show{
+opacity:1;
+transform:translateY(0);
 }
 
-.project-card {
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    padding:25px;
-    width:280px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.1);
-    transition:0.3s;
+section h2{
+text-align:center;
+margin-bottom:30px;
+color:#00f7ff;
 }
 
-.project-card:hover {
-    transform:translateY(-10px);
-    border-color:#00ff99;
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-/* Buttons */
-.btn {
-    display:inline-block;
-    background:#00ff99;
-    color:#000;
-    padding:12px 30px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:bold;
-    margin:10px;
-    transition:0.3s;
+.card{
+padding:25px;
+background:rgba(0,0,0,0.4);
+border-radius:15px;
+transition:0.4s;
 }
 
-.btn:hover {
-    background:#00cc77;
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px #00f7ff;
 }
 
-.btn-phone {
-    background:#28a745;
-    color:white;
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 30px;
+border-radius:50px;
+background:#00f7ff;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
 
-.btn-phone:hover {
-    background:#218838;
+.btn:hover{
+background:#ff00ff;
+box-shadow:0 0 20px #ff00ff;
 }
 
-/* Footer */
-footer {
-    text-align:center;
-    padding:40px;
-    background:rgba(0,0,0,0.8);
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+color:#aaa;
 }
 
-/* Scroll To Top */
-#topBtn {
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    display:none;
-    background:#00ff99;
-    color:black;
-    border:none;
-    padding:10px 15px;
-    border-radius:50%;
-    cursor:pointer;
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media(max-width:600px){
-    header h1 { font-size:32px; }
-    .project-card { width:100%; }
+header h1{font-size:35px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Matrix Canvas -->
-<canvas id="matrixCanvas"></canvas>
+<div id="particles-js"></div>
 
-<!-- Navbar -->
 <nav>
-    <a href="#about">About</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 </nav>
 
-<!-- Header -->
 <header>
-    <h1>Hello, I'm Mustakhine 👋</h1>
-    <p>Computer Science Student | Web Developer</p>
-    <a href="resume.pdf" class="btn" download>Download Resume</a>
+<h1>Mustakhine</h1>
+<p class="typing"></p>
+<a href="#contact" class="btn">Hire Me</a>
 </header>
 
-<!-- About -->
 <section id="about">
 <h2>About Me</h2>
-<p style="text-align:center;max-width:700px;margin:auto;">
-Hi! I'm Mustakhine, a passionate Computer Science student who loves building modern, responsive websites and learning new technologies.
+<p style="text-align:center;">
+Passionate Computer Science student building next-generation web experiences with modern UI & interactive design.
 </p>
 </section>
 
-<!-- Achievements -->
-<section id="achievements">
-<h2>Achievements & Certifications</h2>
-<div class="projects">
-
-<div class="project-card">
-<h3>🏆 Academic Excellence</h3>
-<p>Maintained strong academic performance in Computer Science Engineering.</p>
-</div>
-
-<div class="project-card">
-<h3>📜 Web Development Certification</h3>
-<p>Certified in HTML, CSS & JavaScript development.</p>
-</div>
-
-<div class="project-card">
-<h3>💡 Hackathon Participation</h3>
-<p>Participated in coding competitions and innovation challenges.</p>
-</div>
-
-<div class="project-card">
-<h3>🚀 GitHub Projects</h3>
-<p>Published multiple beginner-friendly projects on GitHub.</p>
-</div>
-
-</div>
-</section>
-
-<!-- Projects -->
 <section id="projects">
-<h2>My Projects</h2>
-<div class="projects">
-
-<div class="project-card">
-<h3>Portfolio Website</h3>
-<p>Responsive personal portfolio built with HTML, CSS & JavaScript.</p>
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">
+<h3>🚀 Portfolio</h3>
+<p>Advanced animated portfolio website.</p>
 </div>
-
-<div class="project-card">
-<h3>GitHub Template</h3>
-<p>Beginner-friendly portfolio template for students.</p>
+<div class="card">
+<h3>💻 Interactive UI</h3>
+<p>Modern JavaScript animations & transitions.</p>
 </div>
-
-<div class="project-card">
-<h3>Interactive UI</h3>
-<p>Modern JavaScript-based web interactions and animations.</p>
+<div class="card">
+<h3>🧠 Problem Solving</h3>
+<p>Strong algorithmic & logical thinking skills.</p>
 </div>
-
 </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
-<h2>Contact Me</h2>
-<p style="text-align:center;">Open to internships and collaborations!</p>
-
+<h2>Contact</h2>
+<p style="text-align:center;">Let’s build something legendary.</p>
 <div style="text-align:center;">
 <a href="mailto:mustakhinemustafaattar@gmail.com" class="btn">Email Me</a>
-<a href="tel:8971521782" class="btn btn-phone">Call Me</a>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Mustakhine | All Rights Reserved</p>
+© 2026 Mustakhine | INSANE Mode Activated 🚀
 </footer>
 
-<button id="topBtn" onclick="scrollToTop()">↑</button>
-
 <script>
-// MATRIX EFFECT
-const canvas = document.getElementById("matrixCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const letters = "01{}[]<>/\\|+=-#@$%^&*()";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for(let i = 0; i < columns; i++) {
-    drops[i] = 1;
+// PARTICLES CONFIG
+particlesJS("particles-js",{
+particles:{
+number:{value:80},
+size:{value:3},
+color:{value:"#00f7ff"},
+line_linked:{enable:true,color:"#00f7ff"},
+move:{speed:3}
 }
-
-function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "#00ff99";
-    ctx.font = fontSize + "px monospace";
-
-    for(let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
-}
-
-setInterval(draw, 35);
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 });
 
-// Scroll To Top Button
-window.onscroll = function(){
-    document.getElementById("topBtn").style.display =
-    window.scrollY > 300 ? "block" : "none";
-}
+// TYPING EFFECT
+const words=["Web Developer","UI Innovator","Future Software Engineer"];
+let i=0,j=0,currentWord="",isDeleting=false;
+const typing=document.querySelector(".typing");
 
-function scrollToTop(){
-    window.scrollTo({top:0, behavior:'smooth'});
+function type(){
+currentWord=words[i];
+if(!isDeleting){
+typing.textContent=currentWord.substring(0,j++);
+if(j>currentWord.length){isDeleting=true;setTimeout(type,1000);return;}
+}else{
+typing.textContent=currentWord.substring(0,j--);
+if(j<0){isDeleting=false;i=(i+1)%words.length;}
 }
+setTimeout(type,isDeleting?50:100);
+}
+type();
+
+// SCROLL REVEAL
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
 </script>
 
 </body>
