@@ -107,27 +107,11 @@ padding:25px;
 background:rgba(0,0,0,0.5);
 border-radius:15px;
 transition:0.4s;
+text-align:center;
 }
 .card:hover{
 transform:translateY(-10px) scale(1.05);
 box-shadow:0 0 25px #00f7ff;
-}
-
-/* SKILLS BARS */
-.skill{
-margin-bottom:20px;
-}
-.bar{
-background:#222;
-border-radius:20px;
-overflow:hidden;
-}
-.bar span{
-display:block;
-height:12px;
-background:linear-gradient(90deg,#00f7ff,#ff00ff);
-width:0;
-transition:1.5s;
 }
 
 /* BUTTON */
@@ -175,7 +159,7 @@ color:#aaa;
 <nav>
 <a href="#about">About</a>
 <a href="#achievements">Achievements</a>
-<a href="#skills">Skills</a>
+<a href="#services">Services</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -215,19 +199,21 @@ Computer Science student passionate about futuristic UI, interactive experiences
 </div>
 </section>
 
-<section id="skills">
-<h2>⚡ Skills</h2>
-<div class="skill">
-<p>HTML</p>
-<div class="bar"><span style="width:90%"></span></div>
+<section id="services">
+<h2>⚡ What I Do</h2>
+<div class="grid">
+<div class="card">
+<h3>💻 Web Development</h3>
+<p>Creating modern, responsive websites with futuristic UI effects.</p>
 </div>
-<div class="skill">
-<p>CSS</p>
-<div class="bar"><span style="width:85%"></span></div>
+<div class="card">
+<h3>🎨 UI/UX Design</h3>
+<p>Designing interactive, visually stunning user interfaces.</p>
 </div>
-<div class="skill">
-<p>JavaScript</p>
-<div class="bar"><span style="width:75%"></span></div>
+<div class="card">
+<h3>🧩 Problem Solving</h3>
+<p>Strong algorithms & logical thinking for innovative solutions.</p>
+</div>
 </div>
 </section>
 
@@ -243,8 +229,9 @@ Computer Science student passionate about futuristic UI, interactive experiences
 <section id="contact">
 <h2>📩 Contact</h2>
 <p style="text-align:center;">Let’s build something legendary.</p>
-<div style="text-align:center;">
-<a href="mailto:mustakhinemustafaattar@gmail.com" class="btn">Email Me</a>
+<div style="text-align:center; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+  <a href="mailto:mustakhinemustafaattar@gmail.com" class="btn">Email Me</a>
+  <a href="https://www.instagram.com/mustakhine_attar" target="_blank" class="btn">Instagram</a>
 </div>
 </section>
 
