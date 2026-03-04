@@ -3,22 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustakhine | INSANE Portfolio</title>
+<title>Mustakhine | GOD MODE</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Particles.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{
 font-family:'Orbitron',sans-serif;
 background:#0f0f1a;
@@ -26,7 +17,7 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* PARTICLES BACKGROUND */
+/* PARTICLES */
 #particles-js{
 position:fixed;
 width:100%;
@@ -34,7 +25,7 @@ height:100%;
 z-index:-1;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -45,18 +36,13 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
-
 nav a{
 color:#fff;
 margin:0 20px;
 text-decoration:none;
-font-weight:bold;
 transition:0.3s;
 }
-
-nav a:hover{
-color:#00f7ff;
-}
+nav a:hover{color:#00f7ff;}
 
 /* HERO */
 header{
@@ -67,24 +53,21 @@ justify-content:center;
 align-items:center;
 text-align:center;
 }
-
 header h1{
-font-size:60px;
+font-size:65px;
 background:linear-gradient(90deg,#00f7ff,#ff00ff,#00ff99);
 background-size:300%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:gradientMove 5s infinite linear;
+animation:gradientMove 6s linear infinite;
 }
-
 @keyframes gradientMove{
 0%{background-position:0%;}
 100%{background-position:300%;}
 }
-
 .typing{
-color:#00f7ff;
 margin-top:20px;
+color:#00f7ff;
 font-size:22px;
 }
 
@@ -97,45 +80,59 @@ background:rgba(255,255,255,0.05);
 border-radius:20px;
 backdrop-filter:blur(15px);
 box-shadow:0 0 40px rgba(0,255,255,0.1);
-transition:0.6s;
 opacity:0;
 transform:translateY(40px);
+transition:0.7s;
 }
-
 section.show{
 opacity:1;
 transform:translateY(0);
 }
-
 section h2{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:40px;
 color:#00f7ff;
 }
 
-/* CARDS */
+/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
+/* CARDS */
 .card{
 padding:25px;
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.5);
 border-radius:15px;
 transition:0.4s;
 }
-
 .card:hover{
 transform:translateY(-10px) scale(1.05);
 box-shadow:0 0 25px #00f7ff;
 }
 
+/* SKILLS BARS */
+.skill{
+margin-bottom:20px;
+}
+.bar{
+background:#222;
+border-radius:20px;
+overflow:hidden;
+}
+.bar span{
+display:block;
+height:12px;
+background:linear-gradient(90deg,#00f7ff,#ff00ff);
+width:0;
+transition:1.5s;
+}
+
 /* BUTTON */
 .btn{
 display:inline-block;
-margin-top:20px;
 padding:12px 30px;
 border-radius:50px;
 background:#00f7ff;
@@ -144,22 +141,28 @@ text-decoration:none;
 font-weight:bold;
 transition:0.3s;
 }
-
 .btn:hover{
 background:#ff00ff;
 box-shadow:0 0 20px #ff00ff;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:30px;
-color:#aaa;
+/* MOUSE GLOW */
+.cursor-glow{
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#00f7ff;
+pointer-events:none;
+mix-blend-mode:screen;
+box-shadow:0 0 20px #00f7ff;
+z-index:9999;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-header h1{font-size:35px;}
+footer{
+text-align:center;
+padding:40px;
+color:#aaa;
 }
 </style>
 </head>
@@ -167,9 +170,12 @@ header h1{font-size:35px;}
 <body>
 
 <div id="particles-js"></div>
+<div class="cursor-glow"></div>
 
 <nav>
 <a href="#about">About</a>
+<a href="#achievements">Achievements</a>
+<a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -177,36 +183,65 @@ header h1{font-size:35px;}
 <header>
 <h1>Mustakhine</h1>
 <p class="typing"></p>
-<a href="#contact" class="btn">Hire Me</a>
+<a href="#contact" class="btn">Let's Build 🚀</a>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <p style="text-align:center;">
-Passionate Computer Science student building next-generation web experiences with modern UI & interactive design.
+Computer Science student passionate about futuristic UI, interactive experiences and next-gen web development.
 </p>
 </section>
 
-<section id="projects">
-<h2>Projects</h2>
+<section id="achievements">
+<h2>🏆 Achievements</h2>
 <div class="grid">
 <div class="card">
-<h3>🚀 Portfolio</h3>
-<p>Advanced animated portfolio website.</p>
+<h3>🎓 Academic Excellence</h3>
+<p>Maintained strong performance in Computer Science Engineering.</p>
 </div>
 <div class="card">
-<h3>💻 Interactive UI</h3>
-<p>Modern JavaScript animations & transitions.</p>
+<h3>💻 Web Certification</h3>
+<p>Certified in HTML, CSS, JavaScript.</p>
 </div>
 <div class="card">
-<h3>🧠 Problem Solving</h3>
-<p>Strong algorithmic & logical thinking skills.</p>
+<h3>🚀 Hackathons</h3>
+<p>Participated in competitive coding & innovation events.</p>
 </div>
+<div class="card">
+<h3>🌍 Open Source</h3>
+<p>Published beginner-friendly projects on GitHub.</p>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>⚡ Skills</h2>
+<div class="skill">
+<p>HTML</p>
+<div class="bar"><span style="width:90%"></span></div>
+</div>
+<div class="skill">
+<p>CSS</p>
+<div class="bar"><span style="width:85%"></span></div>
+</div>
+<div class="skill">
+<p>JavaScript</p>
+<div class="bar"><span style="width:75%"></span></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>🚀 Projects</h2>
+<div class="grid">
+<div class="card"><h3>Portfolio</h3><p>Advanced animated portfolio.</p></div>
+<div class="card"><h3>Interactive UI</h3><p>Modern JS effects & transitions.</p></div>
+<div class="card"><h3>Problem Solving</h3><p>Strong DSA & logical skills.</p></div>
 </div>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
+<h2>📩 Contact</h2>
 <p style="text-align:center;">Let’s build something legendary.</p>
 <div style="text-align:center;">
 <a href="mailto:mustakhinemustafaattar@gmail.com" class="btn">Email Me</a>
@@ -214,40 +249,30 @@ Passionate Computer Science student building next-generation web experiences wit
 </section>
 
 <footer>
-© 2026 Mustakhine | INSANE Mode Activated 🚀
+© 2026 Mustakhine | GOD MODE 👑
 </footer>
 
 <script>
-// PARTICLES CONFIG
-particlesJS("particles-js",{
-particles:{
-number:{value:80},
-size:{value:3},
-color:{value:"#00f7ff"},
-line_linked:{enable:true,color:"#00f7ff"},
-move:{speed:3}
-}
-});
+particlesJS("particles-js",{particles:{number:{value:90},size:{value:3},color:{value:"#00f7ff"},line_linked:{enable:true,color:"#00f7ff"},move:{speed:3}}});
 
-// TYPING EFFECT
+// Typing
 const words=["Web Developer","UI Innovator","Future Software Engineer"];
-let i=0,j=0,currentWord="",isDeleting=false;
+let i=0,j=0,isDeleting=false;
 const typing=document.querySelector(".typing");
-
 function type(){
-currentWord=words[i];
+let word=words[i];
 if(!isDeleting){
-typing.textContent=currentWord.substring(0,j++);
-if(j>currentWord.length){isDeleting=true;setTimeout(type,1000);return;}
+typing.textContent=word.substring(0,j++);
+if(j>word.length){isDeleting=true;setTimeout(type,1000);return;}
 }else{
-typing.textContent=currentWord.substring(0,j--);
+typing.textContent=word.substring(0,j--);
 if(j<0){isDeleting=false;i=(i+1)%words.length;}
 }
 setTimeout(type,isDeleting?50:100);
 }
 type();
 
-// SCROLL REVEAL
+// Scroll reveal
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
@@ -255,6 +280,13 @@ if(sec.getBoundingClientRect().top<window.innerHeight-100){
 sec.classList.add("show");
 }
 });
+});
+
+// Mouse glow
+const glow=document.querySelector(".cursor-glow");
+document.addEventListener("mousemove",(e)=>{
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
 });
 </script>
 
