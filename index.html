@@ -3,159 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustakhine</title>
+<title>Mustakhine | GOD MODE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 body{
-  font-family:'Orbitron',sans-serif;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
+font-family:'Orbitron',sans-serif;
+background:#0f0f1a;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* MATRIX BACKGROUND */
-canvas#matrix {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
+/* PARTICLES */
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 /* NAV */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:15px;
-  text-align:center;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+padding:15px;
+text-align:center;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 nav a{
-  color:#00ff7f;
-  margin:0 20px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
+color:#fff;
+margin:0 20px;
+text-decoration:none;
+transition:0.3s;
 }
 nav a:hover{color:#00f7ff;}
 
 /* HERO */
 header{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 header h1{
-  font-size:65px;
-  background:linear-gradient(90deg,#00f7ff,#ff00ff,#00ff99);
-  background-size:300%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:gradientMove 6s linear infinite;
+font-size:65px;
+background:linear-gradient(90deg,#00f7ff,#ff00ff,#00ff99);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradientMove 6s linear infinite;
 }
 @keyframes gradientMove{
-  0%{background-position:0%;}
-  100%{background-position:300%;}
+0%{background-position:0%;}
+100%{background-position:300%;}
 }
 .typing{
-  margin-top:20px;
-  color:#00f7ff;
-  font-size:22px;
+margin-top:20px;
+color:#00f7ff;
+font-size:22px;
 }
 
 /* GLASS SECTIONS */
 section{
-  padding:100px 20px;
-  max-width:1100px;
-  margin:40px auto;
-  background:rgba(0,0,0,0.4);
-  border-radius:20px;
-  backdrop-filter:blur(15px);
-  box-shadow:0 0 40px rgba(0,255,255,0.1);
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.7s;
+padding:100px 20px;
+max-width:1100px;
+margin:40px auto;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 40px rgba(0,255,255,0.1);
+opacity:0;
+transform:translateY(40px);
+transition:0.7s;
 }
 section.show{
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 section h2{
-  text-align:center;
-  margin-bottom:40px;
-  color:#00ff7f;
+text-align:center;
+margin-bottom:40px;
+color:#00f7ff;
 }
 
 /* GRID */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 /* CARDS */
 .card{
-  padding:25px;
-  background:rgba(0,0,0,0.6);
-  border-radius:15px;
-  transition:0.4s;
-  text-align:center;
+padding:25px;
+background:rgba(0,0,0,0.5);
+border-radius:15px;
+transition:0.4s;
+text-align:center;
 }
 .card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 0 25px #00ff7f;
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px #00f7ff;
 }
 
 /* BUTTON */
 .btn{
-  display:inline-block;
-  padding:12px 30px;
-  border-radius:50px;
-  background:#00ff7f;
-  color:#000;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
+display:inline-block;
+padding:12px 30px;
+border-radius:50px;
+background:#00f7ff;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
 }
 .btn:hover{
-  background:#00f7ff;
-  box-shadow:0 0 20px #00f7ff;
+background:#ff00ff;
+box-shadow:0 0 20px #ff00ff;
 }
 
 /* MOUSE GLOW */
 .cursor-glow{
-  position:fixed;
-  width:20px;
-  height:20px;
-  border-radius:50%;
-  background:#00ff7f;
-  pointer-events:none;
-  mix-blend-mode:screen;
-  box-shadow:0 0 20px #00ff7f;
-  z-index:9999;
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#00f7ff;
+pointer-events:none;
+mix-blend-mode:screen;
+box-shadow:0 0 20px #00f7ff;
+z-index:9999;
 }
 
 footer{
-  text-align:center;
-  padding:40px;
-  color:#aaa;
+text-align:center;
+padding:40px;
+color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="matrix"></canvas>
+<div id="particles-js"></div>
 <div class="cursor-glow"></div>
 
 <nav>
@@ -182,49 +180,49 @@ Computer Science student passionate about futuristic UI, interactive experiences
 <section id="achievements">
 <h2>🏆 Achievements</h2>
 <div class="grid">
-  <div class="card">
-    <h3>🎓 Academic Excellence</h3>
-    <p>Maintained strong performance in Computer Science Engineering.</p>
-  </div>
-  <div class="card">
-    <h3>💻 Web Certification</h3>
-    <p>Certified in HTML, CSS, JavaScript.</p>
-  </div>
-  <div class="card">
-    <h3>🚀 Hackathons</h3>
-    <p>Participated in competitive coding & innovation events.</p>
-  </div>
-  <div class="card">
-    <h3>🌍 Open Source</h3>
-    <p>Published beginner-friendly projects on GitHub.</p>
-  </div>
+<div class="card">
+<h3>🎓 Academic Excellence</h3>
+<p>Maintained strong performance in Computer Science Engineering.</p>
+</div>
+<div class="card">
+<h3>💻 Web Certification</h3>
+<p>Certified in HTML, CSS, JavaScript.</p>
+</div>
+<div class="card">
+<h3>🚀 Hackathons</h3>
+<p>Participated in competitive coding & innovation events.</p>
+</div>
+<div class="card">
+<h3>🌍 Open Source</h3>
+<p>Published beginner-friendly projects on GitHub.</p>
+</div>
 </div>
 </section>
 
 <section id="services">
 <h2>⚡ What I Do</h2>
 <div class="grid">
-  <div class="card">
-    <h3>💻 Web Development</h3>
-    <p>Creating modern, responsive websites with futuristic UI effects.</p>
-  </div>
-  <div class="card">
-    <h3>🎨 UI/UX Design</h3>
-    <p>Designing interactive, visually stunning user interfaces.</p>
-  </div>
-  <div class="card">
-    <h3>🧩 Problem Solving</h3>
-    <p>Strong algorithms & logical thinking for innovative solutions.</p>
-  </div>
+<div class="card">
+<h3>💻 Web Development</h3>
+<p>Creating modern, responsive websites with futuristic UI effects.</p>
+</div>
+<div class="card">
+<h3>🎨 UI/UX Design</h3>
+<p>Designing interactive, visually stunning user interfaces.</p>
+</div>
+<div class="card">
+<h3>🧩 Problem Solving</h3>
+<p>Strong algorithms & logical thinking for innovative solutions.</p>
+</div>
 </div>
 </section>
 
 <section id="projects">
 <h2>🚀 Projects</h2>
 <div class="grid">
-  <div class="card"><h3>Portfolio</h3><p>Advanced animated portfolio.</p></div>
-  <div class="card"><h3>Interactive UI</h3><p>Modern JS effects & transitions.</p></div>
-  <div class="card"><h3>Problem Solving</h3><p>Strong DSA & logical skills.</p></div>
+<div class="card"><h3>Portfolio</h3><p>Advanced animated portfolio.</p></div>
+<div class="card"><h3>Interactive UI</h3><p>Modern JS effects & transitions.</p></div>
+<div class="card"><h3>Problem Solving</h3><p>Strong DSA & logical skills.</p></div>
 </div>
 </section>
 
@@ -238,72 +236,44 @@ Computer Science student passionate about futuristic UI, interactive experiences
 </section>
 
 <footer>
-© developed by Mustakhine 
+© 2026 Mustakhine | GOD MODE 👑
 </footer>
 
 <script>
-// MATRIX EFFECT
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+particlesJS("particles-js",{particles:{number:{value:90},size:{value:3},color:{value:"#00f7ff"},line_linked:{enable:true,color:"#00f7ff"},move:{speed:3}}});
 
-const letters = "abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()*&^%";
-const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for(let x=0; x<columns; x++) drops[x] = 1;
-
-function drawMatrix(){
-  ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "#00ff00";
-  ctx.font = fontSize + "px monospace";
-
-  for(let i=0; i<drops.length; i++){
-    let text = letters.charAt(Math.floor(Math.random() * letters.length));
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-    if(drops[i]*fontSize > canvas.height || Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
-  }
-}
-
-setInterval(drawMatrix, 35);
-
-// TYPOING
+// Typing
 const words=["Web Developer","UI Innovator","Future Software Engineer"];
 let i=0,j=0,isDeleting=false;
 const typing=document.querySelector(".typing");
 function type(){
-  let word=words[i];
-  if(!isDeleting){
-    typing.textContent=word.substring(0,j++);
-    if(j>word.length){isDeleting=true;setTimeout(type,1000);return;}
-  }else{
-    typing.textContent=word.substring(0,j--);
-    if(j<0){isDeleting=false;i=(i+1)%words.length;}
-  }
-  setTimeout(type,isDeleting?50:100);
+let word=words[i];
+if(!isDeleting){
+typing.textContent=word.substring(0,j++);
+if(j>word.length){isDeleting=true;setTimeout(type,1000);return;}
+}else{
+typing.textContent=word.substring(0,j--);
+if(j<0){isDeleting=false;i=(i+1)%words.length;}
+}
+setTimeout(type,isDeleting?50:100);
 }
 type();
 
-// SCROLL REVEAL
+// Scroll reveal
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top<window.innerHeight-100){
-      sec.classList.add("show");
-    }
-  });
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
 });
 
-// MOUSE GLOW
+// Mouse glow
 const glow=document.querySelector(".cursor-glow");
 document.addEventListener("mousemove",(e)=>{
-  glow.style.left=e.clientX+"px";
-  glow.style.top=e.clientY+"px";
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
 });
 </script>
 
