@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Cyberpunk Portfolio</title>
+<title>Cyberpunk Portfolio</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +17,8 @@ background:black;
 color:white;
 overflow-x:hidden;
 }
+
+/* MATRIX BACKGROUND */
 
 canvas{
 position:fixed;
@@ -65,16 +67,32 @@ align-items:center;
 text-align:center;
 }
 
+.profile-wrapper{
+position:relative;
+}
+
 .profile{
-width:160px;
+width:170px;
 border-radius:50%;
-border:3px solid #00f7ff;
+border:4px solid #00f7ff;
+box-shadow:0 0 30px #00f7ff;
 animation:float 4s infinite;
+}
+
+.online{
+position:absolute;
+bottom:10px;
+right:10px;
+width:18px;
+height:18px;
+background:#00ff5e;
+border-radius:50%;
+border:3px solid black;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+50%{transform:translateY(-12px)}
 100%{transform:translateY(0)}
 }
 
@@ -95,13 +113,12 @@ gap:20px;
 background:#111;
 padding:20px;
 border-radius:10px;
-transition:0.4s;
-transform-style:preserve-3d;
+transition:.4s;
 }
 
 .card:hover{
-transform:rotateY(10deg) scale(1.05);
-box-shadow:0 0 20px #00f7ff;
+transform:scale(1.05);
+box-shadow:0 0 25px #00f7ff;
 }
 
 /* SKILLS */
@@ -123,6 +140,19 @@ height:100%;
 background:#00f7ff;
 }
 
+/* CONTACT */
+
+.contact{
+padding:80px 20px;
+text-align:center;
+}
+
+.contact a{
+display:block;
+margin:10px;
+color:#00f7ff;
+}
+
 /* BUTTON */
 
 .btn{
@@ -134,37 +164,74 @@ cursor:pointer;
 margin-top:10px;
 }
 
-/* SEARCH */
-
-#search{
-padding:10px;
-width:250px;
-margin-bottom:30px;
-}
-
 /* CHATBOT */
 
 .chatbot{
 position:fixed;
 right:20px;
 bottom:20px;
-background:#111;
-padding:10px;
-border-radius:10px;
-width:250px;
+width:300px;
+background:rgba(0,0,0,0.8);
+border:1px solid #00f7ff;
+border-radius:12px;
+backdrop-filter:blur(10px);
+overflow:hidden;
 }
 
-#chat{
-height:150px;
-overflow:auto;
+.chat-header{
+background:#00f7ff;
+color:black;
+padding:10px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+}
+
+.chat-body{
+height:220px;
+overflow-y:auto;
+padding:10px;
 font-size:14px;
 }
 
-.chatbot input{
-width:70%;
+.msg{
+padding:8px 10px;
+border-radius:8px;
+margin:6px 0;
+max-width:80%;
 }
 
-/* BACK TO TOP */
+.user{
+background:#00f7ff;
+color:black;
+margin-left:auto;
+}
+
+.bot{
+background:#222;
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid #00f7ff;
+}
+
+.chat-input input{
+flex:1;
+padding:8px;
+background:black;
+border:none;
+color:white;
+}
+
+.chat-input button{
+background:#00f7ff;
+border:none;
+padding:8px 12px;
+cursor:pointer;
+}
+
+/* BACK BUTTON */
 
 #topBtn{
 position:fixed;
@@ -174,21 +241,6 @@ padding:10px;
 border:none;
 background:#00f7ff;
 border-radius:50%;
-cursor:pointer;
-}
-
-/* DARK LIGHT */
-
-.light{
-background:white;
-color:black;
-}
-
-.theme-btn{
-background:none;
-border:none;
-color:#00f7ff;
-font-size:20px;
 cursor:pointer;
 }
 
@@ -215,23 +267,14 @@ display:block;
 
 }
 
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
 </style>
 </head>
 
 <body>
 
 <canvas id="matrix"></canvas>
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -245,17 +288,22 @@ transform:translateY(0);
 <li><a href="#">Home</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
 </ul>
-
-<button onclick="toggleTheme()" class="theme-btn">
-<i class="fa fa-moon"></i>
-</button>
 
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
 
+<div class="profile-wrapper">
+
 <img src="https://i.imgur.com/8Km9tLL.png" class="profile">
+
+<div class="online"></div>
+
+</div>
 
 <h1>Hello I'm Mustakhine</h1>
 
@@ -267,17 +315,19 @@ transform:translateY(0);
 
 </section>
 
-<section id="projects" class="projects reveal">
+<!-- PROJECTS -->
+
+<section id="projects" class="projects">
 
 <h2>Projects</h2>
-
-<input id="search" placeholder="Search projects..." onkeyup="searchProject()">
 
 <div class="grid" id="repoGrid"></div>
 
 </section>
 
-<section id="skills" class="reveal">
+<!-- SKILLS -->
+
+<section id="skills">
 
 <h2 style="text-align:center;">Skills</h2>
 
@@ -298,18 +348,46 @@ transform:translateY(0);
 
 </section>
 
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<a href="mailto:youremail@example.com">
+<i class="fa fa-envelope"></i> Email
+</a>
+
+<a href="https://github.com/yourusername" target="_blank">
+<i class="fab fa-github"></i> GitHub
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+
+</section>
+
 <footer style="text-align:center;padding:30px;">
 <p id="visits"></p>
 </footer>
 
 <button onclick="topFunction()" id="topBtn">↑</button>
 
+<!-- CHATBOT -->
+
 <div class="chatbot">
 
-<div id="chat"></div>
+<div class="chat-header">
+AI Assistant
+</div>
 
-<input id="msg">
-<button onclick="send()">Send</button>
+<div class="chat-body" id="chat"></div>
+
+<div class="chat-input">
+<input id="msg" placeholder="Ask something...">
+<button onclick="send()">➤</button>
+</div>
 
 </div>
 
@@ -319,12 +397,6 @@ transform:translateY(0);
 
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("show");
-}
-
-/* THEME */
-
-function toggleTheme(){
-document.body.classList.toggle("light");
 }
 
 /* TYPING */
@@ -351,7 +423,7 @@ setTimeout(type,150);
 
 type();
 
-/* GITHUB PROJECT LOADER */
+/* GITHUB PROJECTS */
 
 fetch("https://api.github.com/users/github/repos")
 .then(res=>res.json())
@@ -376,38 +448,6 @@ grid.appendChild(card);
 
 });
 
-/* SEARCH */
-
-function searchProject(){
-
-let input=document.getElementById("search").value.toLowerCase();
-let cards=document.querySelectorAll(".card");
-
-cards.forEach(card=>{
-
-let text=card.innerText.toLowerCase();
-card.style.display=text.includes(input)?"block":"none";
-
-});
-
-}
-
-/* SCROLL REVEAL */
-
-window.addEventListener("scroll",()=>{
-
-document.querySelectorAll(".reveal").forEach(r=>{
-
-let top=r.getBoundingClientRect().top;
-
-if(top<window.innerHeight-100){
-r.classList.add("active");
-}
-
-});
-
-});
-
 /* CHATBOT */
 
 function send(){
@@ -417,21 +457,47 @@ let chat=document.getElementById("chat");
 
 let user=input.value.toLowerCase();
 
-chat.innerHTML+=`<div>You: ${user}</div>`;
+let userMsg=document.createElement("div");
+userMsg.className="msg user";
+userMsg.textContent=input.value;
+chat.appendChild(userMsg);
 
 let reply="I'm Mustakhine's assistant.";
 
-if(user.includes("project")) reply="Check the projects section above.";
+if(user.includes("project")) reply="You can see projects above.";
+if(user.includes("contact")) reply="Check the contact section.";
+if(user.includes("skills")) reply="HTML CSS JavaScript.";
 
-if(user.includes("contact")) reply="Contact via GitHub or email.";
+let botMsg=document.createElement("div");
+botMsg.className="msg bot";
+botMsg.textContent=reply;
 
-if(user.includes("skills")) reply="Skills include HTML CSS JS.";
+setTimeout(()=>chat.appendChild(botMsg),500);
 
-chat.innerHTML+=`<div>Bot: ${reply}</div>`;
+chat.scrollTop=chat.scrollHeight;
 
 input.value="";
 
 }
+
+/* ENTER KEY */
+
+document.getElementById("msg")
+.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+send();
+}
+
+});
+
+/* VISITS */
+
+let visits=localStorage.getItem("visits");
+visits=visits?parseInt(visits)+1:1;
+localStorage.setItem("visits",visits);
+
+document.getElementById("visits").innerText="Visitors: "+visits;
 
 /* BACK TO TOP */
 
@@ -439,17 +505,7 @@ function topFunction(){
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* VISITOR COUNTER */
-
-let visits=localStorage.getItem("visits");
-
-visits=visits?parseInt(visits)+1:1;
-
-localStorage.setItem("visits",visits);
-
-document.getElementById("visits").innerText="Visitors: "+visits;
-
-/* MATRIX BACKGROUND */
+/* MATRIX */
 
 const canvas=document.getElementById("matrix");
 const ctx=canvas.getContext("2d");
@@ -457,16 +513,14 @@ const ctx=canvas.getContext("2d");
 canvas.height=window.innerHeight;
 canvas.width=window.innerWidth;
 
-let letters="01";
-letters=letters.split("");
+let letters="01".split("");
 
 let fontSize=14;
 let columns=canvas.width/fontSize;
 
 let drops=[];
 
-for(let x=0;x<columns;x++)
-drops[x]=1;
+for(let x=0;x<columns;x++) drops[x]=1;
 
 function draw(){
 
