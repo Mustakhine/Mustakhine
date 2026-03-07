@@ -1,33 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Cyberpunk Portfolio</title>
 
-<title>Mustakhine | Cyber Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
 body{
-font-family:'Orbitron',sans-serif;
+margin:0;
+font-family:Arial;
 background:black;
 color:white;
 overflow-x:hidden;
 }
-
-/* MATRIX BACKGROUND */
 
 canvas{
 position:fixed;
@@ -39,29 +28,23 @@ z-index:-1;
 /* NAVBAR */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
 display:flex;
 justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
+padding:15px 30px;
+background:#000;
+position:fixed;
+width:100%;
+z-index:100;
 }
 
-.logo{
-color:#00f7ff;
-font-size:22px;
-}
-
-.nav-links{
+nav ul{
 display:flex;
 gap:20px;
+list-style:none;
 }
 
-.nav-links a{
-color:white;
+nav a{
+color:#00f7ff;
 text-decoration:none;
 }
 
@@ -73,7 +56,7 @@ cursor:pointer;
 
 /* HERO */
 
-header{
+.hero{
 height:100vh;
 display:flex;
 flex-direction:column;
@@ -85,132 +68,145 @@ text-align:center;
 .profile{
 width:160px;
 border-radius:50%;
-animation:float 4s ease-in-out infinite;
 border:3px solid #00f7ff;
+animation:float 4s infinite;
 }
 
 @keyframes float{
-0%,100%{transform:translateY(0)}
+0%{transform:translateY(0)}
 50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
 }
 
-h1{
-margin-top:20px;
-font-size:55px;
-color:#00f7ff;
-}
-
-.btn{
-margin-top:20px;
-padding:12px 30px;
-background:#00f7ff;
-color:black;
-border-radius:30px;
-text-decoration:none;
-}
-
-/* SECTION */
-
-section{
-padding:100px 20px;
-max-width:1100px;
-margin:auto;
-}
-
-h2{
-text-align:center;
-margin-bottom:40px;
-color:#00f7ff;
-}
-
-/* PROJECT CARDS */
+/* PROJECTS */
 
 .projects{
+padding:80px 20px;
+text-align:center;
+}
+
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+gap:20px;
 }
 
 .card{
 background:#111;
-padding:25px;
-border-radius:15px;
-transform-style:preserve-3d;
+padding:20px;
+border-radius:10px;
 transition:0.4s;
+transform-style:preserve-3d;
 }
 
 .card:hover{
-transform:rotateY(10deg) rotateX(10deg);
+transform:rotateY(10deg) scale(1.05);
 box-shadow:0 0 20px #00f7ff;
 }
 
-/* SOCIALS */
+/* SKILLS */
 
-.socials{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:30px;
+.skill{
+margin:20px auto;
+width:80%;
 }
 
-.socials a{
-font-size:28px;
-color:#00f7ff;
+.bar{
+height:10px;
+background:#333;
+border-radius:20px;
+}
+
+.bar span{
+display:block;
+height:100%;
+background:#00f7ff;
+}
+
+/* BUTTON */
+
+.btn{
+padding:10px 20px;
+background:#00f7ff;
+border:none;
+color:black;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* SEARCH */
+
+#search{
+padding:10px;
+width:250px;
+margin-bottom:30px;
 }
 
 /* CHATBOT */
 
 .chatbot{
 position:fixed;
-bottom:20px;
 right:20px;
-width:300px;
+bottom:20px;
 background:#111;
+padding:10px;
 border-radius:10px;
-overflow:hidden;
+width:250px;
 }
 
-.chat-header{
-background:#00f7ff;
-color:black;
-padding:10px;
-}
-
-.chat-messages{
-height:200px;
+#chat{
+height:150px;
 overflow:auto;
+font-size:14px;
+}
+
+.chatbot input{
+width:70%;
+}
+
+/* BACK TO TOP */
+
+#topBtn{
+position:fixed;
+bottom:20px;
+left:20px;
 padding:10px;
-}
-
-.chat-input{
-display:flex;
-}
-
-.chat-input input{
-flex:1;
-padding:8px;
 border:none;
-}
-
-.chat-input button{
 background:#00f7ff;
+border-radius:50%;
+cursor:pointer;
+}
+
+/* DARK LIGHT */
+
+.light{
+background:white;
+color:black;
+}
+
+.theme-btn{
+background:none;
 border:none;
-padding:8px 12px;
+color:#00f7ff;
+font-size:20px;
+cursor:pointer;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
+@media(max-width:700px){
 
-.nav-links{
+nav ul{
 display:none;
 flex-direction:column;
+background:black;
 position:absolute;
 top:60px;
-right:0;
-background:#000;
-width:200px;
-padding:20px;
+right:20px;
+}
+
+nav ul.show{
+display:flex;
 }
 
 .menu{
@@ -219,8 +215,18 @@ display:block;
 
 }
 
-</style>
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
 
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
 </head>
 
 <body>
@@ -229,102 +235,219 @@ display:block;
 
 <nav>
 
-<div class="logo">Mustakhine</div>
+<h2>My Portfolio</h2>
 
 <div class="menu" onclick="toggleMenu()">
 <i class="fa fa-bars"></i>
 </div>
 
-<div class="nav-links" id="navLinks">
+<ul id="navLinks">
+<li><a href="#">Home</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+</ul>
 
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-
-</div>
+<button onclick="toggleTheme()" class="theme-btn">
+<i class="fa fa-moon"></i>
+</button>
 
 </nav>
 
-<header>
+<section class="hero">
 
-<img src="https://i.imgur.com/2DhmtJ4.png" class="profile">
+<img src="https://i.imgur.com/8Km9tLL.png" class="profile">
 
-<h1>Mustakhine</h1>
+<h1>Hello I'm Mustakhine</h1>
 
-<p>Web Developer • UI Innovator</p>
+<p id="typing"></p>
 
-<a href="resume.pdf" download class="btn">Download Resume</a>
-
-</header>
-
-<section id="about">
-
-<h2>About Me</h2>
-
-<p style="text-align:center">
-Computer Science student building futuristic web experiences.
-</p>
+<a href="resume.pdf" download>
+<button class="btn">Download Resume</button>
+</a>
 
 </section>
 
-<section id="projects">
+<section id="projects" class="projects reveal">
 
 <h2>Projects</h2>
 
-<div class="projects" id="github-projects">
+<input id="search" placeholder="Search projects..." onkeyup="searchProject()">
 
+<div class="grid" id="repoGrid"></div>
+
+</section>
+
+<section id="skills" class="reveal">
+
+<h2 style="text-align:center;">Skills</h2>
+
+<div class="skill">
+<p>HTML</p>
+<div class="bar"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill">
+<p>CSS</p>
+<div class="bar"><span style="width:90%"></span></div>
+</div>
+
+<div class="skill">
+<p>JavaScript</p>
+<div class="bar"><span style="width:85%"></span></div>
 </div>
 
 </section>
 
-<section id="contact">
+<footer style="text-align:center;padding:30px;">
+<p id="visits"></p>
+</footer>
 
-<h2>Contact</h2>
-
-<div class="socials">
-
-<a href="mailto:mustakhinemustafaattar@gmail.com">
-<i class="fa-solid fa-envelope"></i>
-</a>
-
-<a href="https://www.instagram.com/mustakhine_attar">
-<i class="fa-brands fa-instagram"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-github"></i>
-</a>
-
-</div>
-
-</section>
-
-<!-- CHATBOT -->
+<button onclick="topFunction()" id="topBtn">↑</button>
 
 <div class="chatbot">
 
-<div class="chat-header">AI Assistant</div>
-
-<div class="chat-messages" id="chat"></div>
-
-<div class="chat-input">
+<div id="chat"></div>
 
 <input id="msg">
-
 <button onclick="send()">Send</button>
-
-</div>
 
 </div>
 
 <script>
 
-/* HAMBURGER MENU */
+/* MOBILE MENU */
 
 function toggleMenu(){
-let nav=document.getElementById("navLinks");
-nav.style.display=nav.style.display=="flex"?"none":"flex";
+document.getElementById("navLinks").classList.toggle("show");
 }
+
+/* THEME */
+
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
+
+/* TYPING */
+
+const words=["Web Developer","UI Designer","Cyberpunk Creator"];
+let i=0;
+let j=0;
+let typing=document.getElementById("typing");
+
+function type(){
+
+let word=words[i];
+
+typing.textContent=word.substring(0,j++);
+
+if(j>word.length){
+j=0;
+i=(i+1)%words.length;
+}
+
+setTimeout(type,150);
+
+}
+
+type();
+
+/* GITHUB PROJECT LOADER */
+
+fetch("https://api.github.com/users/github/repos")
+.then(res=>res.json())
+.then(data=>{
+
+let grid=document.getElementById("repoGrid");
+
+data.slice(0,6).forEach(repo=>{
+
+let card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<h3>${repo.name}</h3>
+<p>${repo.description||"No description"}</p>
+<a href="${repo.html_url}" target="_blank">View</a>
+`;
+
+grid.appendChild(card);
+
+});
+
+});
+
+/* SEARCH */
+
+function searchProject(){
+
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+let text=card.innerText.toLowerCase();
+card.style.display=text.includes(input)?"block":"none";
+
+});
+
+}
+
+/* SCROLL REVEAL */
+
+window.addEventListener("scroll",()=>{
+
+document.querySelectorAll(".reveal").forEach(r=>{
+
+let top=r.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+r.classList.add("active");
+}
+
+});
+
+});
+
+/* CHATBOT */
+
+function send(){
+
+let input=document.getElementById("msg");
+let chat=document.getElementById("chat");
+
+let user=input.value.toLowerCase();
+
+chat.innerHTML+=`<div>You: ${user}</div>`;
+
+let reply="I'm Mustakhine's assistant.";
+
+if(user.includes("project")) reply="Check the projects section above.";
+
+if(user.includes("contact")) reply="Contact via GitHub or email.";
+
+if(user.includes("skills")) reply="Skills include HTML CSS JS.";
+
+chat.innerHTML+=`<div>Bot: ${reply}</div>`;
+
+input.value="";
+
+}
+
+/* BACK TO TOP */
+
+function topFunction(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* VISITOR COUNTER */
+
+let visits=localStorage.getItem("visits");
+
+visits=visits?parseInt(visits)+1:1;
+
+localStorage.setItem("visits",visits);
+
+document.getElementById("visits").innerText="Visitors: "+visits;
 
 /* MATRIX BACKGROUND */
 
@@ -369,56 +492,6 @@ drops[i]++;
 }
 
 setInterval(draw,33);
-
-/* GITHUB PROJECT LOADER */
-
-fetch("https://api.github.com/users/YOUR_GITHUB_USERNAME/repos")
-
-.then(res=>res.json())
-
-.then(data=>{
-
-let container=document.getElementById("github-projects");
-
-data.slice(0,6).forEach(repo=>{
-
-let div=document.createElement("div");
-
-div.className="card";
-
-div.innerHTML=`
-<h3>${repo.name}</h3>
-<p>${repo.description || "GitHub Project"}</p>
-<a href="${repo.html_url}" target="_blank">View</a>
-`;
-
-container.appendChild(div);
-
-});
-
-});
-
-/* SIMPLE CHATBOT */
-
-function send(){
-
-let input=document.getElementById("msg");
-let chat=document.getElementById("chat");
-
-let user=input.value;
-
-chat.innerHTML+=`<div>You: ${user}</div>`;
-
-let reply="I'm your portfolio assistant.";
-
-if(user.includes("projects")) reply="Check my GitHub projects above.";
-if(user.includes("contact")) reply="You can contact me via Instagram or email.";
-
-chat.innerHTML+=`<div>Bot: ${reply}</div>`;
-
-input.value="";
-
-}
 
 </script>
 
